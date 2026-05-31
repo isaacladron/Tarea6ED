@@ -11,29 +11,24 @@ package tarea6ed;
 public class Tarea6EDClase {
 
     public void aplicarDescuento(double precioProducto, int numProductos) {
-        // RENAME: 'Total' pasa a ser 'total'
         double total;
         if (numProductos > LIMITE_PRODUCTOS_DESCUENTO) {
             precioProducto -= DESCUENTO_CANTIDAD;
         }
         if (numProductos != 0) {
             total = precioProducto * FACTOR_DESCUENTO_MAYOR;
-            // EXTRACT METHOD: Llamada al método extraído
             mostrarResultado(total);
         } else {
             total = precioProducto * FACTOR_DESCUENTO_MENOR;
-            // EXTRACT METHOD: Llamada al método extraído
             mostrarResultado(total);
         }
 
     }
-    // --- EXTRACT CONSTANT: Eliminación de números mágicos ---
     private static final double FACTOR_DESCUENTO_MENOR = 0.95;
     private static final double FACTOR_DESCUENTO_MAYOR = 0.8;
     private static final double DESCUENTO_CANTIDAD = 5.0;
     private static final int LIMITE_PRODUCTOS_DESCUENTO = 3;
 
-    // --- EXTRACT METHOD: Método extraído para evitar código duplicado ---
     private void mostrarResultado(double total) {
         System.out.println("El total a pagar es:" + total);
         System.out.println("Enviado");
